@@ -13,4 +13,13 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {import = "ninomae.plugins"},
-},{})
+    {import = "ninomae.plugins.lsp"},
+},{
+    checker = {
+        enabled = true,
+        notify = false,
+    },
+    change_detection = {
+        notify = false,
+    },
+})
