@@ -1,5 +1,8 @@
 local opt = vim.opt
 
+-- settings for copilot
+vim.g.copilot_no_tab_map = true
+
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
