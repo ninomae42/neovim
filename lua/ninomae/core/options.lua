@@ -32,7 +32,7 @@ opt.signcolumn = "yes"
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
 -- clipboard
-opt.clipboard:append('unnamedplus')
+opt.clipboard:append("unnamedplus")
 
 -- Save undo history
 opt.undofile = true
@@ -50,9 +50,9 @@ opt.backupskip = "/tmp/*,/private/tmp/*"
 
 -- appearance
 opt.title = true
-opt.scrolloff=2
-opt.cmdheight=2
-opt.laststatus=2
+opt.scrolloff = 2
+opt.cmdheight = 2
+opt.laststatus = 2
 
 -- listchars settings
 vim.opt.list = true
