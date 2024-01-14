@@ -1,12 +1,12 @@
 return {
-    'nvim-telescope/telescope.nvim',
-    dependencies ={
-        'nvim-lua/plenary.nvim',
-        {'nvim-telescope/telescope-fzf-native.nvim', build = 'make'},
-        -- file icons
-        'nvim-tree/nvim-web-devicons',
-        -- file browser
-        'nvim-telescope/telescope-file-browser.nvim',
+	"nvim-telescope/telescope.nvim",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		-- file icons
+		"nvim-tree/nvim-web-devicons",
+		-- file browser
+		"nvim-telescope/telescope-file-browser.nvim",
 		-- Zoxide
 		{
 			"jvgrootveld/telescope-zoxide",
@@ -14,43 +14,43 @@ return {
 				"nvim-lua/popup.nvim",
 			},
 		},
-    },
-    config = function()
-        local telescope = require('telescope')
-        local builtin = require('telescope.builtin')
+	},
+	config = function()
+		local telescope = require("telescope")
+		local builtin = require("telescope.builtin")
 		local actions = require("telescope.actions")
-        local fb_actions = require('telescope._extensions.file_browser.actions')
+		local fb_actions = require("telescope._extensions.file_browser.actions")
 
 		local z_utils = require("telescope._extensions.zoxide.utils")
 
-        telescope.setup({
-            defaults = {
-                layout_strategy = "horizontal",
-                layout_config = { height = 0.95, prompt_position = "top" },
-                sorting_strategy = "ascending",
+		telescope.setup({
+			defaults = {
+				layout_strategy = "horizontal",
+				layout_config = { height = 0.95, prompt_position = "top" },
+				sorting_strategy = "ascending",
 
-                mappings = {
-                    n = {
-                        ["q"] = actions.close,
-                    },
-                },
-                wrap_results = true,
-            },
-            extensions = {
-                file_browser = {
+				mappings = {
+					n = {
+						["q"] = actions.close,
+					},
+				},
+				wrap_results = true,
+			},
+			extensions = {
+				file_browser = {
 					layout_strategy = "horizontal",
 					layout_config = { height = 0.95, prompt_position = "top" },
 					sorting_strategy = "ascending",
 					initial_mode = "normal",
-                    respect_gitignore = false,
+					respect_gitignore = false,
 					hidden = { file_browser = true, folder_browser = true },
 					grouped = true,
 
-                    hijack_netrw = true,
+					hijack_netrw = true,
 					mappings = {
 						["i"] = {
-                            ["<C-w>"] = fb_actions.backspace,
-                        },
+							["<C-w>"] = fb_actions.backspace,
+						},
 						["n"] = {
 							["N"] = fb_actions.create,
 							["h"] = fb_actions.goto_parent_dir,
@@ -59,7 +59,7 @@ return {
 							end,
 						},
 					},
-                },
+				},
 				zoxide = {
 					prompt_title = "Change Directory",
 					mappings = {
@@ -80,13 +80,13 @@ return {
 						["<C-q>"] = { action = z_utils.create_basic_command("split") },
 					},
 				},
-            },
-        })
+			},
+		})
 
-        -- load extentions
-        telescope.load_extension('fzf')
-        telescope.load_extension('file_browser')
-        telescope.load_extension('zoxide')
+		-- load extentions
+		telescope.load_extension("fzf")
+		telescope.load_extension("file_browser")
+		telescope.load_extension("zoxide")
 
 		-- set keymaps
 		local keymap = vim.keymap
@@ -96,7 +96,7 @@ return {
 		keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[F]ind by [G]rep" })
 		keymap.set(
 			"n",
-            "<leader>/",
+			"<leader>/",
 			builtin.current_buffer_fuzzy_find,
 			{ desc = "[/] Fuzzily find in current buffer", silent = true }
 		)
@@ -121,5 +121,5 @@ return {
 		keymap.set("n", "<leader>cd", function()
 			require("telescope").extensions.zoxide.list({})
 		end, { noremap = true, silent = true, desc = "[C]hange [D]irectory" })
-    end,
+	end,
 }
