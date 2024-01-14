@@ -45,4 +45,4 @@ keymap.set("n", "<leader>tl", function()
 end, { silent = true, desc = "[T]oggle relative [L]ine number" })
 
 -- reload(execute) current file as luafile
-keymap.set("n", "<leader>rs", "<cmd>luafile %<cr>", { silent = true, desc = "[R]eload [S]ource" })
+keymap.set("n", "<leader>re", "<cmd>luafile %<cr>", { silent = true, desc = "[R]eload [S]ource" })
