@@ -102,7 +102,9 @@ return {
 		)
 		keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "[?] Find recently opened files", silent = true })
 
-		keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[F]ind [D]iagnostics" })
+		keymap.set("n", "<leader>fd", function()
+			builtin.diagnostics({ line_width = "full" })
+		end, { desc = "[F]ind [D]iagnostics" })
 
 		keymap.set("n", "<leader>fm", builtin.keymaps, { desc = "[F]ind key [M]ap" })
 		keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp" })
