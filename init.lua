@@ -1,2 +1,3 @@
-require('ninomae.core')
-require('ninomae.lazy')
+require("ninomae.core")
+require("ninomae.scripts")
+require("ninomae.lazy")
