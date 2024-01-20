@@ -27,6 +27,7 @@ return {
 		local servers = {
 			clangd = {},
 			gopls = {},
+			rust_analyzer = {},
 			lua_ls = {
 				Lua = {
 					completions = {
