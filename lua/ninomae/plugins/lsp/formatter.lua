@@ -16,6 +16,9 @@ return {
 					filetypes.go.goimports,
 					filetypes.go.goimports_reviser,
 				},
+				rust = {
+					filetypes.rust.rustfmt,
+				},
 				["*"] = {
 					filetypes.any.remove_trailing_whitespace,
 				},
