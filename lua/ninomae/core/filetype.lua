@@ -9,6 +9,7 @@ local ftplugins = {
 	javascript = { tabstop = 2, shiftwidth = 2, softtabstop = 2, expandtab = true },
 	javascriptreact = { tabstop = 2, shiftwidth = 2, softtabstop = 2, expandtab = true },
 	markdown = { tabstop = 2, shiftwidth = 2, softtabstop = 2, expandtab = true },
+	graphql = { tabstop = 2, shiftwidth = 2, softtabstop = 2, expandtab = true },
 }
 
 for filetype, settings in pairs(ftplugins) do
