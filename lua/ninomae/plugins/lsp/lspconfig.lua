@@ -72,7 +72,7 @@ return {
 			end
 
 			-- set keybindings
-			nmap("gr", "<cmd>Telescope lsp_reference<CR>", "Show LSP References")
+			nmap("gr", "<cmd>Telescope lsp_references<CR>", "Show LSP References")
 			nmap("gd", "<cmd>Telescope lsp_definitions<CR>", "Show LSP definitions")
 			nmap("gi", "<cmd>Telescope lsp_implementations<CR>", "Show LSP implementations")
 			nmap("gi", "<cmd>Telescope lsp_type_definitions<CR>", "Show LSP type definitions")
