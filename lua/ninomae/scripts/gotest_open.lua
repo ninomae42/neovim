@@ -50,7 +50,6 @@ local open_file = function(type, split_direction)
 		print("opening: " .. file_name)
 	else
 		print("creating: " .. file_name)
-		return
 	end
 
 	open_file_with_split(file_name, split_direction)
