@@ -3,6 +3,11 @@ local opt = vim.opt
 -- settings for copilot
 vim.g.copilot_no_tab_map = true
 
+-- settings for denols
+vim.g.markdown_fenced_languages = {
+	"ts=typescript",
+}
+
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)

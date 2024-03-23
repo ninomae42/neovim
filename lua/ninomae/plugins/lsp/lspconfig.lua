@@ -28,24 +28,44 @@ return {
 			clangd = {},
 			gopls = {},
 			rust_analyzer = {},
-			lua_ls = {
-				Lua = {
-					completions = {
-						callSnippet = "Replace",
-					},
-					-- make the LSP recognize the `vim` global
-					diagnostics = {
-						globals = { "vim" },
-					},
-					workspace = {
-						-- make the LSP aware of Neovim runtime files
-						library = {
-							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-							[vim.fn.stdpath("config") .. "/lua"] = true,
+			denols = {
+				init_options = {
+					lint = true,
+					unstable = true,
+					suggest = {
+						impprts = {
+							hosts = {
+								["https://deno.land"] = true,
+								["https://cdn.nest.land"] = true,
+								["https://crux.land"] = true,
+							},
 						},
-						checkThirdParty = false,
 					},
-					telemetry = { enable = false },
+				},
+			},
+			tsserver = {
+				single_file_support = false,
+			},
+			lua_ls = {
+				settings = {
+					Lua = {
+						completions = {
+							callSnippet = "Replace",
+						},
+						-- make the LSP recognize the `vim` global
+						diagnostics = {
+							globals = { "vim" },
+						},
+						workspace = {
+							-- make the LSP aware of Neovim runtime files
+							library = {
+								[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+								[vim.fn.stdpath("config") .. "/lua"] = true,
+							},
+							checkThirdParty = false,
+						},
+						telemetry = { enable = false },
+					},
 				},
 			},
 		}
@@ -100,9 +120,11 @@ return {
 			function(server_name)
 				require("lspconfig")[server_name].setup({
 					capabilities = capabilities,
-					settings = servers[server_name],
 					on_attach = on_attach,
+					settings = (servers[server_name] or {}).settings,
 					filetypes = (servers[server_name] or {}).filetypes,
+					init_options = (servers[server_name] or {}).init_options,
+					single_file_support = (servers[server_name] or {}).single_file_support,
 				})
 			end,
 		})
