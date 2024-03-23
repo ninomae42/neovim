@@ -16,6 +16,12 @@ return {
 					filetypes.go.goimports,
 					filetypes.go.goimports_reviser,
 				},
+				typescript = {
+					filetypes.typescript.denofmt,
+				},
+				typescriptreact = {
+					filetypes.typescriptreact.denofmt,
+				},
 				rust = {
 					filetypes.rust.rustfmt,
 				},
