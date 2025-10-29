@@ -91,6 +91,7 @@ return {
 		-- set keymaps
 		local keymap = vim.keymap
 
+		keymap.set("n", "<leader><space>", "<cmd>:Telescope<CR>", { desc = "Show all pickers" })
 		keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
 		keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "[F]ind current [W]ord under cursor" })
 		keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[F]ind by [G]rep" })

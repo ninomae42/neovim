@@ -43,7 +43,7 @@ return {
 					},
 				},
 			},
-			tsserver = {
+			ts_ls = {
 				single_file_support = false,
 			},
 			lua_ls = {
@@ -95,7 +95,7 @@ return {
 			nmap("gr", "<cmd>Telescope lsp_references<CR>", "Show LSP References")
 			nmap("gd", "<cmd>Telescope lsp_definitions<CR>", "Show LSP definitions")
 			nmap("gi", "<cmd>Telescope lsp_implementations<CR>", "Show LSP implementations")
-			nmap("gi", "<cmd>Telescope lsp_type_definitions<CR>", "Show LSP type definitions")
+			nmap("gt", "<cmd>Telescope lsp_type_definitions<CR>", "Show LSP type definitions")
 
 			nmap("gD", vim.lsp.buf.declaration, "Go to declaration")
 			nmap("K", vim.lsp.buf.hover, "Show documentation for what is under cursor")
@@ -115,6 +115,7 @@ return {
 		-- Ensure the servers above are installed
 		mason_lspconfig.setup({
 			ensure_installed = vim.tbl_keys(servers),
+			automatic_installation = false,
 		})
 		mason_lspconfig.setup_handlers({
 			function(server_name)
